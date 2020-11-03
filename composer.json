@@ -1,0 +1,38 @@
+{
+    "name": "dnsoft/zone",
+    "description": "Module Zone",
+    "keywords": [
+        "newnet",
+        "module"
+    ],
+    "homepage": "https://dnguyen.xyz",
+    "support" : {
+        "email" : "dong.joseph2810@gmail.vn"
+    },
+    "authors": [
+        {
+            "name": "Dong Nguyen",
+            "email": "dong.joseph2810@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "dnsoft/core": "^2.0",
+        "guzzlehttp/guzzle": "^6.3.1|^7.0",
+        "maatwebsite/excel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ZoneModule\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ZoneModule\\ModuleServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

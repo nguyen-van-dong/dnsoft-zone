@@ -1,0 +1,8 @@
+{
+    "name": "Module zone",
+    "description": "Module zone",
+    "namespace": "Modules\\ZoneModule\\",
+    "providers": [
+        "Modules\\ZoneModule\\ZoneServiceProvider"
+    ]
+}
