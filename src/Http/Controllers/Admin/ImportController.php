@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\ZoneModule\Http\Controllers\Admin;
+namespace Module\ZoneModule\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
-use Modules\ZoneModule\Jobs\ZoneImportJob;
-use Modules\ZoneModule\Http\Requests\ImportRequest;
+use Module\ZoneModule\Jobs\ZoneImportJob;
+use Module\ZoneModule\Http\Requests\ImportRequest;
 
 class ImportController extends Controller
 {

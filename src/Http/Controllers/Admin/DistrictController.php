@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\ZoneModule\Http\Controllers\Admin;
+namespace Module\ZoneModule\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-use Modules\ZoneModule\Http\Requests\ZoneRequest;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
+use Module\ZoneModule\Http\Requests\ZoneRequest;
+use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
 
 class DistrictController extends Controller
 {

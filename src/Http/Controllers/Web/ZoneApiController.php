@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\ZoneModule\Http\Controllers\Web;
+namespace Module\ZoneModule\Http\Controllers\Web;
 
 use Illuminate\Routing\Controller;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
 
 class ZoneApiController extends Controller
 {

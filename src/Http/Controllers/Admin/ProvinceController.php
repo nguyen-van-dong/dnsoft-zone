@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\ZoneModule\Http\Controllers\Admin;
+namespace Module\ZoneModule\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-use Modules\ZoneModule\Http\Requests\ZoneRequest;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
+use Module\ZoneModule\Http\Requests\ZoneRequest;
+use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
 
 class ProvinceController extends Controller
 {
@@ -69,7 +69,7 @@ class ProvinceController extends Controller
 
     public function destroy($id, Request $request)
     {
-        $this->zoneProvinceRepository->destroy($id);
+        $this->zoneProvinceRepository->delete($id);
 
         if ($request->wantsJson()) {
             Session::flash('success', __('zone::message.notification.deleted'));

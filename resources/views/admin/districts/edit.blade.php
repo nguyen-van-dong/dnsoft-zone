@@ -6,15 +6,22 @@
 
 @section('page_subtitle', __('zone::district.edit.page_subtitle'))
 
-@section('breadcrumb')
-    <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
-        <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('zone.admin.district.index', $item->province_id) }}">{{ trans('zone::district.index.breadcrumb') }}</a></li>
-            <li class="breadcrumb-item active">{{ trans('zone::message.edit.breadcrumb') }}</li>
-        </ol>
-    </nav>
-@stop
+@section('content-header')
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('zone.admin.district.index', $item->province_id) }}">{{ trans('zone::district.index.breadcrumb') }}</a></li>
+                        <li class="breadcrumb-item active">{{ trans('zone::message.edit.breadcrumb') }}</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Collapsed Sidebar</h4>
+            </div>
+        </div>
+    </div>
+@endsection
 
 @section('content')
     <div class="card mb-4">

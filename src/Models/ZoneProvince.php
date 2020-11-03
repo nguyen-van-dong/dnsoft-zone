@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\ZoneModule\Models;
+namespace Module\ZoneModule\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Modules\ZoneModule\Models\ZoneProvince
+ * Module\ZoneModule\Models\ZoneProvince
  *
  * @property int $id
  * @property string $name
@@ -14,18 +14,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $sort_order
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\ZoneModule\Models\ZoneDistrict[] $districts
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Module\ZoneModule\Models\ZoneDistrict[] $districts
  * @property-read int|null $districts_count
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereSortOrder($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\ZoneModule\Models\ZoneProvince whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\ZoneModule\Models\ZoneProvince whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class ZoneProvince extends Model

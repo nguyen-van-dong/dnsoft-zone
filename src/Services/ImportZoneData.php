@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ZoneModule\Services;
+namespace Module\ZoneModule\Services;
 
 class ImportZoneData
 {

@@ -1,8 +1,8 @@
 <?php
-namespace Modules\ZoneModule\Repositories\Eloquent;
+namespace Module\ZoneModule\Repositories\Eloquent;
 
 use Dnsoft\Core\Repositories\BaseRepository;
-use Modules\ZoneModule\Models\ZoneDistrict;
+use Module\ZoneModule\Models\ZoneDistrict;
 
 class ZoneDistrictRepository extends BaseRepository implements ZoneDistrictRepositoryInterface
 {

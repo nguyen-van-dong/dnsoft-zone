@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ZoneModule\Console\Commands;
+namespace Module\ZoneModule\Console\Commands;
 
 use Illuminate\Console\Command;
 

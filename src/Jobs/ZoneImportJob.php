@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\ZoneModule\Jobs;
+namespace Module\ZoneModule\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Modules\ZoneModule\Imports\ZoneImport;
+use Module\ZoneModule\Imports\ZoneImport;
 
 class ZoneImportJob implements ShouldQueue
 {

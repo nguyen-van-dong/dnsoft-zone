@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\ZoneModule\Repositories\Eloquent;
+namespace Module\ZoneModule\Repositories\Eloquent;
 
 use Dnsoft\Core\Repositories\BaseRepository;
-use Modules\ZoneModule\Models\ZoneProvince;
+use Module\ZoneModule\Models\ZoneProvince;
 
 class ZoneProvinceRepository extends BaseRepository implements ZoneProvinceRepositoryInterface
 {

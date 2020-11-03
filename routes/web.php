@@ -1,6 +1,6 @@
 <?php
 
-use Modules\ZoneModule\Http\Controllers\Web\ZoneApiController;
+use Module\ZoneModule\Http\Controllers\Web\ZoneApiController;
 
 Route::prefix('api/zone')->group(function () {
     Route::get('provinces', [ZoneApiController::class, 'provinces']);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ZoneModule;
+namespace Module\ZoneModule;
 
 use GuzzleHttp\Client;
 

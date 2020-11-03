@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ZoneModule\Repositories\Eloquent;
+namespace Module\ZoneModule\Repositories\Eloquent;
 
 use Dnsoft\Core\Repositories\BaseRepositoryInterface;
 

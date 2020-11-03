@@ -6,23 +6,30 @@
 
 @section('page_subtitle', __('zone::district.index.page_subtitle'))
 
-@section('breadcrumb')
-    <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
-        <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-            <li class="breadcrumb-item active">{{ trans('zone::district.index.breadcrumb') }}</li>
-        </ol>
-    </nav>
-@stop
+@section('content-header')
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
+                        <li class="breadcrumb-item active">{{ trans('zone::district.index.breadcrumb') }}</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Collapsed Sidebar</h4>
+            </div>
+        </div>
+    </div>
+@endsection
 
 @section('content')
     <div class="card mb-4">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h6 class="fs-17 font-weight-600 mb-0">
+                    <h5 class="fs-17 font-weight-600 mb-0">
                         {{ __('zone::district.index.page_title') }}
-                    </h6>
+                    </h5>
                 </div>
                 <div class="text-right">
                     <div class="actions">
@@ -52,12 +59,14 @@
                                 {{ $item->name }}
                             </a>
                         </td>
+
                         <td class="text-right">
-                            <a href="{{ route('zone.admin.district.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1">
-                                <i class="fas fa-pencil-alt"></i>
+                            <a href="{{ route('zone.admin.district.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
+                                <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -6px; margin-top: 4px"></i>
                             </a>
-                            <table-button-delete url-delete="{{ route('zone.admin.district.destroy', $item->id) }}"></table-button-delete>
+                            <button-delete url-delete="{{ route('zone.admin.district.destroy', $item->id) }}"></button-delete>
                         </td>
+
                     </tr>
                 @endforeach
                 <tr>

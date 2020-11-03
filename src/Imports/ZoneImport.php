@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\ZoneModule\Imports;
+namespace Module\ZoneModule\Imports;
 
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToArray;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Validators\Failure;
-use Modules\ZoneModule\Models\ZoneDistrict;
-use Modules\ZoneModule\Models\ZoneProvince;
-use Modules\ZoneModule\Models\ZoneTownship;
+use Module\ZoneModule\Models\ZoneDistrict;
+use Module\ZoneModule\Models\ZoneProvince;
+use Module\ZoneModule\Models\ZoneTownship;
 
 class ZoneImport implements WithHeadingRow, SkipsOnFailure, ToArray, WithChunkReading
 {

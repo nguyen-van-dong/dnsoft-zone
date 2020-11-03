@@ -1,17 +1,17 @@
 <?php
 
-namespace Modules\ZoneModule;
+namespace Module\ZoneModule;
 
 use Dnsoft\Core\Support\BaseModuleServiceProvider;
 use Illuminate\Support\Facades\Event;
-use Modules\ZoneModule\Console\Commands\DownloadCommand;
-use Modules\ZoneModule\Console\Commands\UpdateCommand;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneDistrictRepository;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneProvinceRepository;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneTownshipRepository;
-use Modules\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
+use Module\ZoneModule\Console\Commands\DownloadCommand;
+use Module\ZoneModule\Console\Commands\UpdateCommand;
+use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepository;
+use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepository;
+use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
+use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepository;
+use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
 use Dnsoft\Acl\Facades\Permission;
 use Dnsoft\Core\Events\CoreAdminMenuRegistered;
 
@@ -44,19 +44,16 @@ class ZoneServiceProvider extends BaseModuleServiceProvider
         ]);
 
         require_once __DIR__.'/../helpers/helpers.php';
+
+        $this->registerPermissions();
+        $this->registerAdminMenus();
     }
 
     public function registerAdminMenus()
     {
         Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
-//            AdminMenu::addItem(__('zone::menu.zone.index'), [
-//                'id'         => 'zone_root',
-//                'parent'     => 'system_root',
-//                'route'      => 'zone.admin.province.index',
-//                'permission' => 'zone.admin.province.index',
-//                'icon'       => 'typcn typcn-sort-numerically-outline',
-//                'order'      => 7,
-//            ]);
+            $menu->add(__('zone::menu.zone.index'), ['route' => 'zone.admin.province.index', 'parent' => $menu->system->id])
+                ->data('order', 9)->prepend('<i class="fab fa-accusoft"></i>');
         });
     }
 }

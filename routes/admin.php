@@ -1,9 +1,9 @@
 <?php
 
-use Modules\ZoneModule\Http\Controllers\Admin\ProvinceController;
-use Modules\ZoneModule\Http\Controllers\Admin\DistrictController;
-use Modules\ZoneModule\Http\Controllers\Admin\TownshipController;
-use Modules\ZoneModule\Http\Controllers\Admin\ImportController;
+use Module\ZoneModule\Http\Controllers\Admin\ProvinceController;
+use Module\ZoneModule\Http\Controllers\Admin\DistrictController;
+use Module\ZoneModule\Http\Controllers\Admin\TownshipController;
+use Module\ZoneModule\Http\Controllers\Admin\ImportController;
 
 Route::prefix('zone')->group(function () {
     Route::prefix('province')->group(function () {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\ZoneModule\Console\Commands;
+namespace Module\ZoneModule\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Modules\ZoneModule\Downloader;
-use Modules\ZoneModule\Imports\ZoneImport;
+use Module\ZoneModule\Downloader;
+use Module\ZoneModule\Imports\ZoneImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DownloadCommand extends Command

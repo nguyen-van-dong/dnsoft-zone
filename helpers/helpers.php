@@ -1,8 +1,8 @@
 <?php
 
-use Modules\ZoneModule\Models\ZoneDistrict;
-use Modules\ZoneModule\Models\ZoneProvince;
-use Modules\ZoneModule\Models\ZoneTownship;
+use Module\ZoneModule\Models\ZoneDistrict;
+use Module\ZoneModule\Models\ZoneProvince;
+use Module\ZoneModule\Models\ZoneTownship;
 
 if (!function_exists('get_zone_provice_options')) {
     /**
