@@ -23,13 +23,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\ZoneModule\\": "/src"
+            "Module\\ZoneModule\\": "/src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\ZoneModule\\ModuleServiceProvider"
+                "Module\\ZoneModule\\ModuleServiceProvider"
             ]
         }
     },
