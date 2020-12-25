@@ -2,7 +2,6 @@
     "name": "dnsoft/zone",
     "description": "Module Zone",
     "keywords": [
-        "newnet",
         "module"
     ],
     "homepage": "https://dnguyen.xyz",
@@ -17,7 +16,7 @@
     ],
     "type": "library",
     "require": {
-        "dnsoft/core": "^2.0",
+        "dnsoft/core": "dev-master",
         "guzzlehttp/guzzle": "^6.3.1|^7.0",
         "maatwebsite/excel": "^3.1"
     },

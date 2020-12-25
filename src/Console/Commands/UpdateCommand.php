@@ -11,7 +11,7 @@ class UpdateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'newnet:zone:update';
+    protected $signature = 'dnsoft:zone-update';
 
     /**
      * The console command description.
