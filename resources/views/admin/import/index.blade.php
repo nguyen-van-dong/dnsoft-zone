@@ -24,9 +24,9 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h6 class="fs-17 font-weight-600 mb-0">
+                        <h4 class="fs-17 font-weight-600 mb-2">
                             {{ __('zone::import.index.page_title') }}
-                        </h6>
+                        </h4>
                     </div>
                     <div class="text-right">
                         <div class="btn-group">

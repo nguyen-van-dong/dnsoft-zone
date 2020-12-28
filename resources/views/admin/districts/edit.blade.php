@@ -28,9 +28,9 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h6 class="fs-17 font-weight-600 mb-0">
+                    <h4 class="fs-17 font-weight-600 mb-2">
                         {{ __('zone::district.edit.page_title') }}
-                    </h6>
+                    </h4>
                 </div>
             </div>
         </div>
