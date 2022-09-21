@@ -44,8 +44,14 @@ class ZoneServiceProvider extends BaseModuleServiceProvider
         ]);
 
         require_once __DIR__.'/../helpers/helpers.php';
+    }
+
+    public function boot()
+    {
+        parent::boot();
 
         $this->registerPermissions();
+
         $this->registerAdminMenus();
     }
 
