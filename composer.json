@@ -1,36 +1,28 @@
 {
     "name": "dnsoft/zone",
-    "description": "Module Zone",
+    "description": "This is module zone",
     "keywords": [
         "module"
     ],
+    "type": "library",
     "homepage": "https://dnguyen.xyz",
-    "support" : {
-        "email" : "dong.joseph2810@gmail.vn"
-    },
     "authors": [
         {
             "name": "Dong Nguyen",
             "email": "dong.joseph2810@gmail.com"
         }
     ],
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^6.3.1|^7.0",
-        "maatwebsite/excel": "^3.1"
-    },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Module\\ZoneModule\\": "/src"
+            "Module\\ZoneModule\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Module\\ZoneModule\\ModuleServiceProvider"
+                "Module\\ZoneModule\\ZoneServiceProvider "
             ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
