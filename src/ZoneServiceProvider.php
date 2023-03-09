@@ -2,7 +2,7 @@
 
 namespace Module\ZoneModule;
 
-use Dnsoft\Core\Support\BaseModuleServiceProvider;
+use DnSoft\Core\Support\BaseModuleServiceProvider;
 use Illuminate\Support\Facades\Event;
 use Module\ZoneModule\Console\Commands\DownloadCommand;
 use Module\ZoneModule\Console\Commands\UpdateCommand;
@@ -12,8 +12,8 @@ use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepository;
 use Module\ZoneModule\Repositories\Eloquent\ZoneProvinceRepositoryInterface;
 use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepository;
 use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
-use Dnsoft\Acl\Facades\Permission;
-use Dnsoft\Core\Events\CoreAdminMenuRegistered;
+use DnSoft\Acl\Facades\Permission;
+use DnSoft\Core\Events\CoreAdminMenuRegistered;
 
 class ZoneServiceProvider extends BaseModuleServiceProvider
 {

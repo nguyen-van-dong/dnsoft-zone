@@ -15,7 +15,7 @@ class DownloadCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'dnsoft:zone-download';
+    protected $signature = 'dnsoft:zone-import';
 
     /**
      * The console command description.

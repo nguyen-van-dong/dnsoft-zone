@@ -33,13 +33,14 @@ class ProvinceController extends Controller
     public function index(Request $request)
     {
         $items = $this->zoneProvinceRepository->paginate($request->input('max', 20));
-
-        return view('zone::admin.provinces.index', compact('items'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.provinces.index", compact('items'));
     }
 
     public function create()
     {
-        return view('zone::admin.provinces.create');
+        $version = get_version_actived();
+        return view("zone::$version.admin.provinces.create");
     }
 
     public function store(ZoneRequest $request)
@@ -54,8 +55,8 @@ class ProvinceController extends Controller
     public function edit($id)
     {
         $item = $this->zoneProvinceRepository->getById($id);
-
-        return view('zone::admin.provinces.edit', compact('item'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.provinces.edit", compact('item'));
     }
 
     public function update(ZoneRequest $request, $id)
@@ -96,6 +97,6 @@ class ProvinceController extends Controller
             return response()->json(['districts' => $renderHtml, 'firstItemId' => $firstItemId]);
         }
 
-        return view('zone::admin.districts.index', compact('districts'));
+        return view("zone::$version.admin.districts.index", compact('districts'));
     }
 }

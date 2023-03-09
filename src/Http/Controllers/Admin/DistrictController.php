@@ -27,7 +27,8 @@ class DistrictController extends Controller
 
     public function create($id)
     {
-        return view('zone::admin.districts.create',  compact('id'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.districts.create",  compact('id'));
     }
 
     public function store(ZoneRequest $request, $id)
@@ -45,7 +46,8 @@ class DistrictController extends Controller
     public function edit($id)
     {
         $item = $this->zoneDistrictRepository->getById($id);
-        return view('zone::admin.districts.edit', compact('item'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.districts.edit", compact('item'));
     }
 
     public function update(Request $request, $id)

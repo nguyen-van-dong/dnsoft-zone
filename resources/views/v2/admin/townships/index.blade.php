@@ -1,10 +1,10 @@
-@extends('core::admin.master')
+@extends('core::v2.admin.master')
 
-@section('meta_title', __('zone::message.index.page_title'))
+@section('meta_title', __('zone::township.index.page_title'))
 
-@section('page_title', __('zone::message.index.page_title'))
+@section('page_title', __('zone::township.index.page_title'))
 
-@section('page_subtitle', __('zone::message.index.page_subtitle'))
+@section('page_subtitle', __('zone::township.index.page_subtitle'))
 
 @section('content-header')
     <div class="row">
@@ -13,7 +13,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-                        <li class="breadcrumb-item active">{{ __('zone::message.index.page_title') }}</li>
+                        <li class="breadcrumb-item active">{{ trans('zone::township.index.breadcrumb') }}</li>
                     </ol>
                 </div>
                 <h4 class="page-title">Collapsed Sidebar</h4>
@@ -28,12 +28,12 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h4 class="fs-17 font-weight-600 mb-2">
-                        {{ __('zone::message.index.page_title') }}
+                        {{ __('zone::township.index.page_title') }}
                     </h4>
                 </div>
                 <div class="text-right">
                     <div class="actions">
-                        <a href="{{ route('zone.admin.province.create') }}" class="action-item">
+                        <a href="{{ route('zone.admin.township.create', request()->id) }}" class="action-item">
                             <i class="fa fa-plus"></i>
                             {{ __('core::button.add') }}
                         </a>
@@ -46,38 +46,37 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>{{ __('zone::province.name') }}</th>
-                    <th>{{ __('zone::province.sort_order') }}</th>
-                    <th>{{ __('zone::province.status') }}</th>
+                    <th>{{ __('zone::township.name') }}</th>
+                    <th>{{ __('zone::township.status') }}</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($items as $item)
+                @foreach($townships as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>
-                            <a href="{{ route('zone.admin.district.index', $item->id) }}">
-                                {{ $item->name }}
-                            </a>
-                        </td>
-                        <td>{{ $item->sort_order }}</td>
-                        <td>
-                            @if($item->status)
-                                <i class="fas fa-check text-success"></i>
-                            @endif
-                        </td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->status == 1 ? 'Active' : 'Inactive' }}</td>
+
                         <td class="text-right">
-                            <a href="{{ route('zone.admin.province.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
-                                <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
+                            <a href="{{ route('zone.admin.township.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
+                                <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -6px; margin-top: 4px"></i>
                             </a>
-                            <button-delete url-delete="{{ route('zone.admin.province.destroy', $item->id) }}"></button-delete>
+                            <button-delete url-delete="{{ route('zone.admin.township.destroy', $item->id) }}"></button-delete>
                         </td>
+
                     </tr>
                 @endforeach
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right">
+                        <a class="btn btn-secondary" href="{{route('zone.admin.district.index', isset($item) ? $item->district()->get()[0]->province_id : '')}}">Back To List</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
-            {{ $items->links() }}
         </div>
     </div>
 @stop

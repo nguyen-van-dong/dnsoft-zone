@@ -2,7 +2,7 @@
 
 namespace Module\ZoneModule\Repositories\Eloquent;
 
-use Dnsoft\Core\Repositories\BaseRepositoryInterface;
+use DnSoft\Core\Repositories\BaseRepositoryInterface;
 
 interface ZoneProvinceRepositoryInterface extends BaseRepositoryInterface
 {

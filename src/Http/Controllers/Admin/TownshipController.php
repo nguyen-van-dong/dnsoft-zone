@@ -36,7 +36,8 @@ class TownshipController extends Controller
 
     public function create($id)
     {
-        return view('zone::admin.townships.create',  compact('id'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.townships.create",  compact('id'));
     }
 
     public function store(ZoneRequest $request, $id)
@@ -54,7 +55,8 @@ class TownshipController extends Controller
     public function edit($id)
     {
         $item = $this->zoneTownshipRepository->getById($id);
-        return view('zone::admin.townships.edit', compact('item'));
+        $version = get_version_actived();
+        return view("zone::$version.admin.townships.edit", compact('item'));
     }
 
     public function update(Request $request, $id)
@@ -89,11 +91,12 @@ class TownshipController extends Controller
         $townships = $item->townships()->get();
         $township_id = $request->township_id;
         $firstItemId = count($townships) > 0 ? $townships[0]->id : '';
+        $version = get_version_actived();
         if ($request->ajax()) {
             $isTownship = true;
-            $renderHtml = view('zone::admin.provinces.zone-ajax', compact('townships', 'isTownship', 'township_id'))->render();
+            $renderHtml = view("zone::$version.admin.provinces.zone-ajax", compact('townships', 'isTownship', 'township_id'))->render();
             return response()->json(['townships' => $renderHtml, 'firstItemId' => $firstItemId]);
         }
-        return view('zone::admin.townships.index', compact('townships'));
+        return view("zone::$version.admin.townships.index", compact('townships'));
     }
 }

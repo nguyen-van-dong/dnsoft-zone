@@ -10,7 +10,8 @@ class ImportController extends Controller
 {
     public function index()
     {
-        return view('zone::admin.import.index');
+        $version = get_version_actived();
+        return view("zone::$version.admin.import.index");
     }
 
     public function store(ImportRequest $request)
