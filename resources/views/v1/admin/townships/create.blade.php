@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active">{{ trans('zone::township.create.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Collapsed Sidebar</h4>
+                <h4 class="page-title">{{ __('zone::township.create.page_title') }}</h4>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <form action="{{ route('zone.admin.township.store', $id) }}" method="POST">
                 @csrf
 
-                @include('zone::admin.townships._fields', ['item' => null])
+                @include('zone::v1.admin.townships._fields', ['item' => null])
 
                 <button class="btn btn-success" type="submit">{{ __('core::button.submit') }}</button>
             </form>

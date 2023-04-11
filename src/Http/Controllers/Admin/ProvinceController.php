@@ -2,6 +2,7 @@
 
 namespace Module\ZoneModule\Http\Controllers\Admin;
 
+use DnSoft\Core\Facades\MenuAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
@@ -39,6 +40,7 @@ class ProvinceController extends Controller
 
   public function create()
   {
+    MenuAdmin::activeMenu('zone');
     $version = get_version_actived();
     return view("zone::$version.admin.provinces.create");
   }
@@ -54,6 +56,7 @@ class ProvinceController extends Controller
 
   public function edit($id)
   {
+    MenuAdmin::activeMenu('zone');
     $item = $this->zoneProvinceRepository->getById($id);
     $version = get_version_actived();
     return view("zone::$version.admin.provinces.edit", compact('item'));
@@ -86,6 +89,7 @@ class ProvinceController extends Controller
 
   public function districts(Request $request, $id)
   {
+    MenuAdmin::activeMenu('zone');
     $item = $this->zoneProvinceRepository->getById($id);
     $districts = $item->districts()->get();
     $district_id = $request->district_id;

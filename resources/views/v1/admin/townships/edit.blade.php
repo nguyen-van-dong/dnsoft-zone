@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active">{{ trans('zone::message.edit.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Collapsed Sidebar</h4>
+                <h4 class="page-title"> {{ __('zone::message.edit.page_title') }}</h4>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
                 @method('PUT')
                 @csrf
 
-                @include('zone::admin.townships._fields', ['item' => $item])
+                @include('zone::v1.admin.townships._fields', ['item' => $item])
 
                 <button class="btn btn-success" type="submit">{{ __('core::button.save') }}</button>
             </form>

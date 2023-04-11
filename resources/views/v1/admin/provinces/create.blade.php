@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active">{{ trans('zone::message.create.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Collapsed Sidebar</h4>
+                <h4 class="page-title">{{ __('zone::message.create.page_title') }}</h4>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <form action="{{ route('zone.admin.province.store') }}" method="POST">
                 @csrf
 
-                @include('zone::admin.provinces._fields', ['item' => null])
+                @include('zone::v1.admin.provinces._fields', ['item' => null])
 
                 <button class="btn btn-success" type="submit">{{ __('core::button.submit') }}</button>
             </form>

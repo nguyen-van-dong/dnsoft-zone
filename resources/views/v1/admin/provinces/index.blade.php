@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item active">{{ __('zone::message.index.page_title') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Collapsed Sidebar</h4>
+                <h4 class="page-title">{{ __('zone::message.index.page_title') }}</h4>
             </div>
         </div>
     </div>

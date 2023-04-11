@@ -17,49 +17,53 @@ use DnSoft\Core\Events\CoreAdminMenuRegistered;
 
 class ZoneServiceProvider extends BaseModuleServiceProvider
 {
-    public function getModuleNamespace()
-    {
-        return 'zone';
-    }
+  public function getModuleNamespace()
+  {
+    return 'zone';
+  }
 
-    public function registerPermissions()
-    {
-        Permission::add('zone.admin.province.index', __('zone::permission.province.index'));
-        Permission::add('zone.admin.province.create', __('zone::permission.province.create'));
-        Permission::add('zone.admin.province.edit', __('zone::permission.province.edit'));
-        Permission::add('zone.admin.province.destroy', __('zone::permission.province.destroy'));
+  public function registerPermissions()
+  {
+    Permission::add('zone.admin.province.index', __('zone::permission.province.index'));
+    Permission::add('zone.admin.province.create', __('zone::permission.province.create'));
+    Permission::add('zone.admin.province.edit', __('zone::permission.province.edit'));
+    Permission::add('zone.admin.province.destroy', __('zone::permission.province.destroy'));
 
-        Permission::add('zone.admin.import.index', __('zone::permission.import.index'));
-    }
+    Permission::add('zone.admin.import.index', __('zone::permission.import.index'));
+  }
 
-    public function register()
-    {
-        $this->app->bind(ZoneProvinceRepositoryInterface::class, ZoneProvinceRepository::class);
-        $this->app->bind(ZoneDistrictRepositoryInterface::class, ZoneDistrictRepository::class);
-        $this->app->bind(ZoneTownshipRepositoryInterface::class, ZoneTownshipRepository::class);
+  public function register()
+  {
+    $this->app->bind(ZoneProvinceRepositoryInterface::class, ZoneProvinceRepository::class);
+    $this->app->bind(ZoneDistrictRepositoryInterface::class, ZoneDistrictRepository::class);
+    $this->app->bind(ZoneTownshipRepositoryInterface::class, ZoneTownshipRepository::class);
 
-        $this->commands([
-            DownloadCommand::class,
-            UpdateCommand::class,
-        ]);
+    $this->commands([
+      DownloadCommand::class,
+      UpdateCommand::class,
+    ]);
 
-        require_once __DIR__.'/../helpers/helpers.php';
-    }
+    require_once __DIR__ . '/../helpers/helpers.php';
+  }
 
-    public function boot()
-    {
-        parent::boot();
+  public function boot()
+  {
+    parent::boot();
 
-        $this->registerPermissions();
+    $this->registerPermissions();
 
-        $this->registerAdminMenus();
-    }
+    $this->registerAdminMenus();
+  }
 
-    public function registerAdminMenus()
-    {
-        Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
-            $menu->add(__('zone::menu.zone.index'), ['route' => 'zone.admin.province.index', 'parent' => $menu->system->id])
-                ->data('order', 9)->prepend('<i class="fab fa-accusoft"></i>');
-        });
-    }
+  public function registerAdminMenus()
+  {
+    Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
+      $menu->add( __('zone::menu.zone.index'),
+        [
+          'route' => 'zone.admin.province.index',
+          'parent' => $menu->system->id
+        ]
+      )->data('order', 9)->prepend('<i class="fab fa-accusoft"></i>')->nickname('zone');
+    });
+  }
 }

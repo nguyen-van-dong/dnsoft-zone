@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item active">{{ trans('zone::township.index.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Collapsed Sidebar</h4>
+                <h4 class="page-title"> {{ __('zone::township.index.page_title') }}</h4>
             </div>
         </div>
     </div>
