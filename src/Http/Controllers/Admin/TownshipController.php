@@ -75,7 +75,7 @@ class TownshipController extends Controller
   public function destroy($id, Request $request)
   {
     $this->zoneTownshipRepository->destroy($id);
-    if ($request->wantsJson()) {
+    if ($request->ajax()) {
       Session::flash('success', __('zone::message.notification.deleted'));
       return response()->json([
         'success' => true,

@@ -62,7 +62,7 @@
                             <a href="{{ route('zone.admin.township.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
                                 <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -6px; margin-top: 4px"></i>
                             </a>
-                            <button-delete url-delete="{{ route('zone.admin.township.destroy', $item->id) }}"></button-delete>
+                            <x-button-delete-v1 url="{{ route('zone.admin.township.destroy', $item->id) }}"></x-button-delete-v1>
                         </td>
 
                     </tr>

@@ -75,7 +75,7 @@ class ProvinceController extends Controller
   {
     $this->zoneProvinceRepository->delete($id);
 
-    if ($request->wantsJson()) {
+    if ($request->ajax()) {
       Session::flash('success', __('zone::message.notification.deleted'));
       return response()->json([
         'success' => true,

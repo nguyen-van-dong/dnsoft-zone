@@ -67,7 +67,7 @@ class DistrictController extends Controller
   public function destroy($id, Request $request)
   {
     $this->zoneDistrictRepository->destroy($id);
-    if ($request->wantsJson()) {
+    if ($request->ajax()) {
       Session::flash('success', __('zone::message.notification.deleted'));
       return response()->json([
         'success' => true,

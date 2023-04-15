@@ -71,7 +71,7 @@
                             <a href="{{ route('zone.admin.province.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
                                 <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
                             </a>
-                            <button-delete url-delete="{{ route('zone.admin.province.destroy', $item->id) }}"></button-delete>
+                            <x-button-delete-v1 url="{{ route('zone.admin.province.destroy', $item->id) }}"></x-button-delete-v1>
                         </td>
                     </tr>
                 @endforeach
