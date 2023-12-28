@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Module\ZoneModule\Http\Requests\ZoneRequest;
+use Module\ZoneModule\Models\ZoneTownship;
 use Module\ZoneModule\Repositories\Eloquent\ZoneDistrictRepositoryInterface;
 use Module\ZoneModule\Repositories\Eloquent\ZoneTownshipRepositoryInterface;
 
@@ -36,8 +37,10 @@ class TownshipController extends Controller
   public function create($id)
   {
     MenuAdmin::activeMenu('zone');
-    $version = get_version_actived();
-    return view("zone::$version.admin.townships.create",  compact('id'));
+
+    $item = ZoneTownship::find($id);
+    
+    return view("zone::admin.townships.create",  compact('item'));
   }
 
   public function store(ZoneRequest $request, $id)
@@ -56,8 +59,8 @@ class TownshipController extends Controller
   {
     MenuAdmin::activeMenu('zone');
     $item = $this->zoneTownshipRepository->getById($id);
-    $version = get_version_actived();
-    return view("zone::$version.admin.townships.edit", compact('item'));
+    
+    return view("zone::admin.townships.edit", compact('item'));
   }
 
   public function update(Request $request, $id)
@@ -91,15 +94,19 @@ class TownshipController extends Controller
   {
     MenuAdmin::activeMenu('zone');
     $item = $this->zoneDistrictRepository->getById($id);
-    $townships = $item->townships()->get();
+    if (request('keyword')) {
+      $townships = $item->townships()->where('name', 'like', '%'. request('keyword') .'%')->get();
+    } else {
+      $townships = $item->townships()->get();
+    }
     $township_id = $request->township_id;
     $firstItemId = count($townships) > 0 ? $townships[0]->id : '';
-    $version = get_version_actived();
+    
     if ($request->ajax()) {
       $isTownship = true;
-      $renderHtml = view("zone::$version.admin.provinces.zone-ajax", compact('townships', 'isTownship', 'township_id'))->render();
+      $renderHtml = view("zone::admin.provinces.zone-ajax", compact('townships', 'isTownship', 'township_id'))->render();
       return response()->json(['townships' => $renderHtml, 'firstItemId' => $firstItemId]);
     }
-    return view("zone::$version.admin.townships.index", compact('townships'));
+    return view("zone::admin.townships.index", compact('townships'));
   }
 }

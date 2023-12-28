@@ -33,16 +33,19 @@ class ProvinceController extends Controller
 
   public function index(Request $request)
   {
-    $items = $this->zoneProvinceRepository->paginate($request->input('max', 20));
-    $version = get_version_actived();
-    return view("zone::$version.admin.provinces.index", compact('items'));
+    if (request('keyword')) {
+      $items = $this->zoneProvinceRepository->paginateWithSearch('name', 10);
+    } else {
+      $items = $this->zoneProvinceRepository->paginate($request->input('max', 20));
+    }
+    return view("zone::admin.provinces.index", compact('items'));
   }
 
   public function create()
   {
     MenuAdmin::activeMenu('zone');
-    $version = get_version_actived();
-    return view("zone::$version.admin.provinces.create");
+    
+    return view("zone::admin.provinces.create");
   }
 
   public function store(ZoneRequest $request)
@@ -58,8 +61,8 @@ class ProvinceController extends Controller
   {
     MenuAdmin::activeMenu('zone');
     $item = $this->zoneProvinceRepository->getById($id);
-    $version = get_version_actived();
-    return view("zone::$version.admin.provinces.edit", compact('item'));
+    
+    return view("zone::admin.provinces.edit", compact('item'));
   }
 
   public function update(ZoneRequest $request, $id)
@@ -91,7 +94,11 @@ class ProvinceController extends Controller
   {
     MenuAdmin::activeMenu('zone');
     $item = $this->zoneProvinceRepository->getById($id);
-    $districts = $item->districts()->get();
+    if (request('keyword')) {
+      $districts = $item->districts()->where('name', 'like', '%'. request('keyword') .'%')->get();
+    } else {
+      $districts = $item->districts()->get();
+    }
     $district_id = $request->district_id;
     $firstItemId = count($districts) > 0 ? $districts[0]->id : '';
 
@@ -100,7 +107,7 @@ class ProvinceController extends Controller
       $renderHtml = view('zone::admin.provinces.zone-ajax', compact('districts', 'isTownship', 'district_id'))->render();
       return response()->json(['districts' => $renderHtml, 'firstItemId' => $firstItemId]);
     }
-    $version = get_version_actived();
-    return view("zone::$version.admin.districts.index", compact('districts'));
+    
+    return view("zone::admin.districts.index", compact('districts'));
   }
 }

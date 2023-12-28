@@ -1,12 +1,8 @@
-@extends('core::v2.admin.master')
+@extends('core::admin.master')
 
 @section('meta_title', __('zone::message.edit.page_title'))
 
-@section('page_title', __('zone::message.edit.page_title'))
-
-@section('page_subtitle', __('zone::message.edit.page_subtitle'))
-
-@section('content-header')
+@section('breadcrumbs')
 <div class="row">
   <div class="col-12">
     <div class="page-title-box">
@@ -17,7 +13,7 @@
           <li class="breadcrumb-item active">{{ trans('zone::message.edit.breadcrumb') }}</li>
         </ol>
       </div>
-      <h4 class="page-title">Collapsed Sidebar</h4>
+      <h4 class="page-title">{{ __('zone::message.edit.page_title') }}</h4>
     </div>
   </div>
 </div>
@@ -25,22 +21,11 @@
 
 @section('content')
 <div class="card mb-4">
-  <div class="card-header">
-    <div class="d-flex justify-content-between align-items-center">
-      <div>
-        <h4 class="fs-17 font-weight-600 mb-2">
-          {{ __('zone::message.edit.page_title') }}
-        </h4>
-      </div>
-    </div>
-  </div>
   <div class="card-body">
     <form action="{{ route('zone.admin.province.update', $item->id) }}" method="POST">
       @method('PUT')
       @csrf
-
-      @include('zone::v2.admin.provinces._fields', ['item' => $item])
-
+      @include('zone::admin.provinces._fields', ['item' => $item])
       <button class="btn btn-success" type="submit">{{ __('core::button.save') }}</button>
     </form>
   </div>

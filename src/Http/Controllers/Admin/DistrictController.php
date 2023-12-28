@@ -28,8 +28,8 @@ class DistrictController extends Controller
   public function create($id)
   {
     MenuAdmin::activeMenu('zone');
-    $version = get_version_actived();
-    return view("zone::$version.admin.districts.create",  compact('id'));
+    
+    return view("zone::admin.districts.create",  compact('id'));
   }
 
   public function store(ZoneRequest $request, $id)
@@ -48,8 +48,8 @@ class DistrictController extends Controller
   {
     MenuAdmin::activeMenu('zone');
     $item = $this->zoneDistrictRepository->getById($id);
-    $version = get_version_actived();
-    return view("zone::$version.admin.districts.edit", compact('item'));
+    
+    return view("zone::admin.districts.edit", compact('item'));
   }
 
   public function update(Request $request, $id)
